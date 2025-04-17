@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <!-- Definindo o conjunto de caracteres utilizado na página -->
+    <meta charset="UTF-8">
+       <!-- Tornando a página responsiva, ajustando o conteúdo conforme o tamanho da tela -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <!-- Cabeçalho da página com o título 'Modo Claro/Escuro' -->
+    <h1>Modo Claro/Escuro</h1>
+      <!-- Botão que, quando clicado, chama a função TrocarTema() -->
+    <button onclick="TrocarTema()">TrocarTema</button>
+</body>
+</html>
+
+<script>
+      // Função que altera o tema da página (modo claro e escuro)
+    function TrocarTema() {
+        // Obtém a cor de fundo atual do corpo da página
+        let corFundo = document.body.style.backgroundColor;
+        
+        // Verifica se o fundo está branco (modo claro)
+        if (corFundo === "white") {
+       // Altera o fundo para preto e a cor do texto para branco (modo escuro)
+            document.body.style.backgroundColor = "black";
+            document.body.style.color = "white";
+        } else {
+         // Caso contrário, altera para o modo claro (fundo branco e texto preto)
+            document.body.style.backgroundColor = "white";
+            document.body.style.color = "black";
+        }
+    }
+</script>

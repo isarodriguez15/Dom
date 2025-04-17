@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Carrinho de Camisetas</title>
+</head>
+<body>
+
+  <h1>Camisetas</h1>
+  <div>
+    Camiseta Branca - R$ 40,00
+    <button onclick="adicionar('Camiseta Branca', 40)">Adicionar</button>
+  </div>
+  <div>
+    Camiseta Preta - R$ 50,00
+    <button onclick="adicionar('Camiseta Preta', 50)">Adicionar</button>
+  </div>
+
+  <h2>Carrinho</h2>
+  <div id="carrinho"></div>
+  <div><strong>Total: R$ <span id="total">0.00</span></strong></div>
+
+  <script>
+    let total = 0;
+
+    function adicionar(nome, preco) {
+      const carrinho = document.getElementById("carrinho");
+      const item = document.createElement("div");
+      item.innerHTML = `
+        <span>${nome} - R$ ${preco.toFixed(2)}</span>
+        <button onclick="remover(this, ${preco})">Remover</button>
+      `;
+      carrinho.appendChild(item);
+      total += preco;
+      atualizarTotal();
+    }
+
+    function remover(botao, preco) {
+      botao.parentElement.remove();
+      total -= preco;
+      atualizarTotal();
+    }
+
+    function atualizarTotal() {
+      document.getElementById("total").innerText = total.toFixed(2);
+    }
+  </script>
+
+</body>
+</html>
+
